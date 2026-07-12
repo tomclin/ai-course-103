@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>四動作速查表 · 換你認識 AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light dark;
+    --paper:#F7F6F2;
+    --surface:#FFFFFF;
+    --ink:#17263B;
+    --muted:#3D4A5C;
+    --faint:#677180;
+    --teal:#2E7D6B;
+    --seal:#B5432E;
+    --hair:#D9D6CE;
+    --on-accent:#FDFBF7;
+    --wash:#EDF3F1;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#14181F;
+      --surface:#1C222B;
+      --ink:#E8E5DE;
+      --muted:#B4BCC7;
+      --faint:#87919D;
+      --teal:#4FA893;
+      --seal:#D4664F;
+      --hair:#2A3038;
+      --on-accent:#16100E;
+      --wash:#1A2420;
+    }
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:var(--paper);}
+  body{
+    color:var(--ink);
+    font-family:'Noto Sans TC',sans-serif;
+    font-size:16px;line-height:1.55;
+    padding:26px 20px 32px;
+  }
+  .sheet{max-width:900px;margin:0 auto;}
+
+  header{border-bottom:3px double var(--ink);padding-bottom:12px;margin-bottom:14px;}
+  h1{font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:28px;line-height:1.3;}
+  .sub{color:var(--muted);font-size:15px;margin-top:4px;}
+  .sub strong{color:var(--teal);}
+
+  h2{
+    font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:18px;
+    margin:14px 0 8px;color:var(--ink);
+  }
+  h2 .tag{color:var(--teal);}
+
+  table{width:100%;border-collapse:collapse;}
+  th{
+    font-family:'Noto Sans TC',sans-serif;font-size:15px;text-align:left;
+    color:var(--teal);border-bottom:2px solid var(--teal);
+    padding:7px 9px;vertical-align:bottom;
+  }
+  td{
+    border-bottom:1px solid var(--hair);
+    padding:9px 9px;vertical-align:top;
+    font-size:15px;color:var(--muted);
+  }
+  td.act{
+    font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:16px;
+    color:var(--ink);white-space:nowrap;
+  }
+  td.act small{display:block;font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:13px;color:var(--faint);white-space:normal;}
+  td b{color:var(--ink);}
+  td .say{color:var(--seal);font-weight:500;}
+  td .cue{color:var(--seal);font-weight:900;}
+
+  .cp3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px;}
+  .cp{background:var(--wash);border-radius:6px;padding:8px 10px;}
+  .cp b{display:block;font-size:15px;color:var(--ink);font-weight:700;}
+  .cp span{font-size:13px;color:var(--muted);line-height:1.5;display:block;margin-top:2px;}
+
+  .formrow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+  .cell{
+    background:var(--surface);border:1px solid var(--hair);border-top:3px solid var(--teal);
+    border-radius:0 0 6px 6px;padding:8px 9px;
+  }
+  .cell .lbl{
+    display:block;font-family:'Noto Sans TC',sans-serif;font-weight:700;
+    font-size:15px;color:var(--teal);margin-bottom:2px;
+  }
+  .cell .hint{font-size:13px;color:var(--muted);line-height:1.5;}
+  .cell .fill{border-bottom:1px solid var(--faint);height:22px;margin-top:6px;}
+
+  .redline{
+    margin-top:10px;background:var(--surface);border:2px solid var(--seal);
+    border-radius:8px;padding:9px 14px;font-size:16px;color:var(--muted);text-align:center;
+  }
+  .redline b{color:var(--seal);font-weight:900;}
+
+  .tips{margin-top:10px;font-size:13px;color:var(--muted);}
+  .tips li{margin-left:1.4em;margin-top:3px;}
+
+  footer{
+    margin-top:12px;font-size:13px;color:var(--faint);
+    display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    border-top:1px solid var(--hair);padding-top:10px;
+  }
+
+  @media (max-width:640px){
+    .formrow{grid-template-columns:1fr 1fr;}
+    .cp3{grid-template-columns:1fr;}
+    table,thead,tbody,tr{display:block;}
+    thead{display:none;}
+    td{display:block;border-bottom:none;padding:4px 10px;}
+    td::before{content:attr(data-h);display:block;font-size:13px;color:var(--teal);font-weight:700;letter-spacing:.1em;}
+    td.act{background:var(--wash);border-radius:6px;margin-top:14px;padding:8px 10px;}
+    td.act::before{content:none;}
+    tr{border-bottom:1px solid var(--hair);padding-bottom:8px;}
+  }
+  @media print{
+    :root{color-scheme:only light;}
+    body{padding:0;font-size:12.5px;line-height:1.45;}
+    h1{font-size:22px;}
+    .sub{font-size:13px;}
+    h2{font-size:14px;margin:8px 0 5px;}
+    td{font-size:11.5px;padding:5px 6px;}
+    th{font-size:12px;padding:5px 6px;}
+    td.act{font-size:13px;}
+    .cp{padding:5px 8px;}
+    .cp b{font-size:12.5px;}
+    .cp span{font-size:11px;}
+    .cell{padding:5px 7px;}
+    .cell .lbl{font-size:12.5px;}
+    .cell .hint{font-size:11px;}
+    .cell .fill{height:16px;}
+    .redline{padding:6px 10px;font-size:13px;margin-top:7px;}
+    .tips{font-size:10.5px;margin-top:6px;}
+    footer{margin-top:6px;font-size:10px;}
+    .sheet{max-width:none;}
+    table,.cp3,.formrow,.redline{break-inside:avoid;}
+    @page{size:A4;margin:10mm 11mm;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <h1>四動作速查表——越聊越歪的時候，看這張</h1>
+    <p class="sub">AI 走鐘不是它有態度，是它有慣性。<strong>看懂慣性，就拉得回來</strong>——四個動作，照著做。</p>
+  </header>
+
+  <h2><span class="tag">一、</span>四動作對照——先看「什麼時候用」，再做「怎麼做」</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:16%">動作</th>
+        <th style="width:38%">什麼時候用</th>
+        <th style="width:46%">怎麼做</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="act" data-h="動作">導正<small>steer</small></td>
+        <td data-h="什麼時候用">內容剛開始偏，語氣還正常——還在淺盆，一句話拉得回來。</td>
+        <td data-h="怎麼做">一句話拉回：<span class="say">「回到 X，我要的是 Y 格式。」</span>把主題和成品格式同時講清楚。</td>
+      </tr>
+      <tr>
+        <td class="act" data-h="動作">重開<small>reset</small></td>
+        <td data-h="什麼時候用"><span class="cue">糾正兩次沒用</span>——井太深，你的糾正推不過井壁。</td>
+        <td data-h="怎麼做">帶 RESET 卡<b>開一個新對話</b>，貼卡＋原任務，別在舊對話裡戀戰。</td>
+      </tr>
+      <tr>
+        <td class="act" data-h="動作">求證<small>verify</small></td>
+        <td data-h="什麼時候用">看到數字、引用、日期，或任何要對外發佈的內容。</td>
+        <td data-h="怎麼做">對照原始來源；要求它標注<b>「哪句是事實、哪句是推測」</b>；必要時換一個 AI 交叉問。</td>
+      </tr>
+      <tr>
+        <td class="act" data-h="動作">交回<small>transfer</small></td>
+        <td data-h="什麼時候用">後果重大、AI 的判斷不算數的事。</td>
+        <td data-h="怎麼做">人拍板——<b>這不是它的失敗，是你的職責</b>。該你決定的，別外包給它。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2><span class="tag">二、</span>走鐘三訊號速查——勾到就該動手</h2>
+  <div class="cp3">
+    <div class="cp"><b>□ 內容離成品越來越遠</b><span>它給的東西，跟你原本要的成品越差越多。</span></div>
+    <div class="cp"><b>□ 語氣一輪比一輪宏大篤定</b><span>口吻一輪比一輪高，越講越像宣言。</span></div>
+    <div class="cp"><b>□ 糾正了又繞回去</b><span>你拉了一下，它收斂半句，又爬回原本的調。</span></div>
+  </div>
+
+  <h2><span class="tag">三、</span>RESET 五欄空白模板——重開時照著填，貼進新對話開頭</h2>
+  <div class="formrow">
+    <div class="cell"><span class="lbl">R 語域角色</span><span class="hint">現在是什麼工作、用什麼口吻。</span><div class="fill"></div></div>
+    <div class="cell"><span class="lbl">E 預期產出</span><span class="hint">給誰、什麼格式、多長、怎樣算成。</span><div class="fill"></div></div>
+    <div class="cell"><span class="lbl">S 允許來源</span><span class="hint">只能用什麼資料；缺的標「未查證」不准編。</span><div class="fill"></div></div>
+    <div class="cell"><span class="lbl">E 例外與不確定</span><span class="hint">事實、推測、假設分開講。</span><div class="fill"></div></div>
+    <div class="cell"><span class="lbl">T 停止與交回</span><span class="hint">什麼情況要先問我。</span><div class="fill"></div></div>
+  </div>
+
+  <div class="redline"><b>流暢、篤定、有引用——不等於為真。</b></div>
+
+  <ul class="tips">
+    <li>認識它之後，它還是會錯——所以<b>求證與交回，永遠是四動作的後兩個</b>。</li>
+    <li>地形是比喻，不是模型內部構造——幫你看懂一個真實現象，不是描述它的零件。</li>
+  </ul>
+
+  <footer>
+    <span>換你認識 AI · 實作工作坊 · 速查表</span>
+    <span>四動作：導正 · 重開 · 求證 · 交回</span>
+  </footer>
+
+</div>
+</body>
+</html>

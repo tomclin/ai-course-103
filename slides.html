@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>換你認識 AI — 講師 Slides v1.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light dark;
+    --paper:#F7F6F2;   /* 紙白 */
+    --surface:#FFFFFF;
+    --ink:#17263B;     /* 墨藍 */
+    --muted:#3D4A5C;
+    --faint:#677180;
+    --teal:#2E7D6B;    /* 青碧 */
+    --seal:#B5432E;    /* 印章紅 */
+    --hair:#D9D6CE;
+    --on-accent:#FDFBF7;
+    --wash:#EDF3F1;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#14181F;
+      --surface:#1C222B;
+      --ink:#E8E5DE;
+      --muted:#B4BCC7;
+      --faint:#87919D;
+      --teal:#4FA893;
+      --seal:#D4664F;
+      --hair:#2A3038;
+      --on-accent:#16100E;
+      --wash:#1A2420;
+    }
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:var(--paper);color:var(--ink);}
+  body{font-family:'Noto Sans TC',sans-serif;line-height:1.6;}
+
+  .slide{
+    display:none;
+    width:100vw;height:100vh;
+    padding:6vh 7vw;
+    flex-direction:column;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .slide.active{display:flex;}
+
+  .kicker{
+    font-size:clamp(12px,1.4vw,15px);letter-spacing:.35em;color:var(--faint);
+    text-transform:uppercase;margin-bottom:2.2vh;
+  }
+  h1{
+    font-family:'Noto Sans TC',sans-serif;font-weight:900;
+    font-size:clamp(34px,5.6vw,72px);line-height:1.28;
+  }
+  h1 em{font-style:normal;color:var(--teal);}
+  h1 .soft{color:var(--faint);}
+  .sub{margin-top:2.5vh;font-size:clamp(16px,2vw,24px);color:var(--muted);max-width:60ch;}
+  .sub strong{color:var(--teal);}
+  .seal-text{color:var(--seal);}
+
+  .stamp{
+    display:inline-block;background:var(--seal);color:var(--on-accent);
+    font-family:'Noto Sans TC',sans-serif;font-weight:700;
+    font-size:clamp(16px,2vw,24px);letter-spacing:.2em;
+    padding:.5em .9em;border-radius:3px;transform:rotate(-2deg);
+  }
+
+  .pagenum{
+    position:absolute;bottom:3.2vh;right:4vw;
+    font-size:13px;color:var(--faint);letter-spacing:.15em;
+  }
+  .srcline{
+    position:absolute;bottom:3.2vh;left:7vw;right:18vw;
+    font-size:clamp(12px,1.4vw,15px);color:var(--faint);
+  }
+
+  /* hands-up poll */
+  .poll{margin-top:4vh;display:grid;gap:1.6vh;max-width:880px;}
+  .poll div{
+    background:var(--surface);border:1px solid var(--hair);border-radius:10px;
+    padding:1.6vh 1.4em;font-size:clamp(16px,2vw,24px);
+    display:flex;gap:.7em;align-items:baseline;
+  }
+  .poll b{color:var(--teal);font-family:'Noto Sans TC',sans-serif;white-space:nowrap;}
+
+  /* story slides */
+  .story-num{
+    font-family:'Noto Sans TC',sans-serif;font-weight:900;
+    font-size:clamp(60px,10vw,130px);color:var(--wash);
+    -webkit-text-stroke:2px var(--teal);
+    line-height:1;margin-bottom:1vh;
+  }
+  .bigfact{
+    margin-top:3vh;font-family:'Noto Sans TC',sans-serif;font-weight:900;
+    font-size:clamp(40px,7vw,96px);color:var(--teal);line-height:1.2;
+  }
+  .bigfact small{display:block;font-family:'Noto Sans TC',sans-serif;font-weight:500;
+    font-size:clamp(16px,2vw,24px);color:var(--muted);margin-top:1vh;letter-spacing:.05em;}
+
+  /* quote slide */
+  .quote{
+    font-family:'Noto Sans TC',sans-serif;font-weight:900;
+    font-size:clamp(30px,4.6vw,60px);line-height:1.5;max-width:22em;
+  }
+  .quote em{font-style:normal;color:var(--seal);}
+  .quote .hl{color:var(--teal);}
+
+  /* theory rung slides */
+  .lvtag{
+    font-family:'Noto Sans TC',sans-serif;font-weight:700;
+    font-size:clamp(12px,1.4vw,15px);color:var(--faint);letter-spacing:.3em;
+    margin-bottom:1vh;
+  }
+  .rung2{
+    display:grid;grid-template-columns:1fr 1fr;gap:4vw;margin-top:3.5vh;align-items:start;
+  }
+  .rung2 .theory .src{font-size:clamp(12px,1.4vw,15px);color:var(--faint);margin:.6vh 0 1.2vh;}
+  .rung2 .theory p{font-size:clamp(16px,2vw,24px);color:var(--muted);max-width:30ch;}
+  .rung2 h3{font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(20px,2.6vw,30px);}
+  .rung2 .ai{border-left:3px solid var(--teal);padding-left:2vw;}
+  .rung2 .ai .tag{font-size:clamp(12px,1.4vw,15px);letter-spacing:.28em;color:var(--teal);font-weight:700;margin-bottom:1vh;}
+  .rung2 .ai p{font-size:clamp(16px,2vw,24px);max-width:26ch;}
+  .rung2 .ai em{font-style:normal;color:var(--teal);font-weight:700;}
+  .ladder-mini{
+    position:absolute;top:6vh;right:7vw;display:flex;gap:6px;align-items:flex-end;
+  }
+  .ladder-mini span{width:26px;background:var(--hair);border-radius:2px;}
+  .ladder-mini span.on{background:var(--teal);}
+
+  /* level cards slide */
+  .cards3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2vw;margin-top:4vh;}
+  .cards3 div{
+    background:var(--surface);border:1px solid var(--hair);border-radius:12px;
+    padding:3vh 1.6em;
+  }
+  .cards3 .lv{font-size:clamp(12px,1.4vw,15px);letter-spacing:.25em;color:var(--seal);font-weight:700;margin-bottom:1vh;}
+  .cards3 b{display:block;font-family:'Noto Sans TC',sans-serif;font-size:clamp(20px,2.6vw,30px);margin-bottom:1vh;}
+  .cards3 p{font-size:clamp(16px,2vw,24px);color:var(--muted);}
+  .rulebar{
+    margin-top:3.5vh;background:var(--wash);border-left:4px solid var(--seal);
+    padding:1.6vh 1.4em;font-size:clamp(16px,2vw,24px);
+  }
+  .rulebar b{color:var(--seal);}
+
+  /* bench slide */
+  .bench{display:flex;gap:5vw;margin-top:4vh;align-items:center;justify-content:flex-start;}
+  .bench .rank{
+    text-align:center;background:var(--surface);border:1px solid var(--hair);
+    border-radius:14px;padding:3.5vh 3vw;
+  }
+  .bench .rank .n{
+    font-family:'Noto Sans TC',sans-serif;font-weight:900;
+    font-size:clamp(40px,6.5vw,88px);line-height:1.1;white-space:nowrap;
+  }
+  .bench .rank.good .n{color:var(--teal);}
+  .bench .rank.bad .n{color:var(--faint);}
+  .bench .rank p{font-size:clamp(16px,2vw,24px);color:var(--muted);margin-top:.6vh;}
+  .bench .vs{
+    font-family:'Noto Sans TC',sans-serif;font-weight:900;
+    font-size:clamp(20px,2.6vw,30px);color:var(--seal);white-space:nowrap;
+  }
+
+  /* CTA slide */
+  .cta-box{
+    margin-top:4vh;background:var(--surface);border:2px solid var(--teal);border-radius:14px;
+    padding:3.5vh 2em;max-width:760px;
+  }
+  .cta-box p{font-size:clamp(16px,2vw,24px);color:var(--muted);}
+  .cta-box b{color:var(--ink);}
+
+  /* register terrain SVG (103) */
+  .terrain{width:100%;max-width:940px;margin:3vh auto 0;display:block;}
+  .terrain .ground{fill:none;stroke:var(--faint);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+  .terrain .ball{fill:var(--teal);}
+  .terrain .push{fill:none;stroke:var(--seal);stroke-width:2;stroke-dasharray:5 5;stroke-linecap:round;}
+  .terrain .head{fill:none;stroke:var(--seal);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .terrain .lbl{fill:var(--ink);font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:21px;}
+  .terrain .cap{fill:var(--faint);font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:15px;}
+  .terrain .pushlbl{fill:var(--seal);font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:16px;}
+  .terrain-note{margin-top:2vh;font-size:clamp(12px,1.4vw,15px);color:var(--faint);}
+
+  .navhint{
+    position:fixed;bottom:3.2vh;left:50%;transform:translateX(-50%);
+    font-size:12px;color:var(--faint);letter-spacing:.1em;opacity:.8;
+  }
+
+  @media print{
+    :root{color-scheme:only light;}
+    .slide{display:flex;page-break-after:always;width:auto;height:96vh;}
+    .navhint{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 0 · 封面（入場時停留） -->
+<section class="slide active">
+  <div class="kicker">AI 實作工作坊 · 120 分鐘 · 第三堂</div>
+  <h1>換你認識 AI<br><span class="soft">看懂你的同事</span> <em>何時可靠、何時走鐘</em></h1>
+  <p class="sub">101 它認識了你，102 你放手給它——今天，<strong>換你認識它</strong>。</p>
+  <div class="pagenum">換你認識 AI</div>
+</section>
+
+<!-- 1 · 暖場：兩個舉手 -->
+<section class="slide">
+  <div class="kicker">開始之前 · 舉手就好</div>
+  <h1>兩個問題</h1>
+  <div class="poll">
+    <div><b>一</b>AI 有沒有讓你越聊越火大過——越糾正越歪的，請舉手</div>
+    <div><b>二</b>有沒有它講得頭頭是道、結果是錯的，請舉手</div>
+  </div>
+  <p class="sub">兩題都舉手的——<strong>今天你會拿到名字和解法</strong>。</p>
+  <div class="pagenum">1 / 12</div>
+</section>
+
+<!-- 2 · 故事一：檢查碼是被錯誤逼出來的 -->
+<section class="slide">
+  <div class="story-num">壹</div>
+  <h1>檢查碼，是被錯誤逼出來的</h1>
+  <p class="sub">上兩堂的故事：交接文件（101）、分派與檢查碼（102）。今天補最後一塊：<strong>為什麼要交叉比對四遍？</strong><br><br>因為做的過程中，AI 真的錯過。</p>
+  <div class="pagenum">2 / 12</div>
+</section>
+
+<!-- 3 · 故事二：錯是它工作方式的一部分 -->
+<section class="slide">
+  <div class="story-num">貳</div>
+  <h1>錯，不是意外——<br>是它工作方式的一部分</h1>
+  <p class="sub">抓到 bug、驗證、修正、再放行——檢查碼不是多疑，是<strong>認識它之後的正常配備</strong>。</p>
+  <div class="bigfact">比對四遍<small>1,090 題官方題庫 · 不是不信任 AI，是認識 AI</small></div>
+  <div class="pagenum">3 / 12</div>
+</section>
+
+<!-- 4 · 故事三：金句 -->
+<section class="slide">
+  <div class="kicker">所以第三堂課只教一件事</div>
+  <p class="quote">看懂它<span class="hl">正在延續什麼</span>，<br>你才拉得回來。</p>
+  <p class="sub">它為什麼越講越遠、越講越篤定？今天給你名字、給你解法。</p>
+  <div class="pagenum">4 / 12</div>
+</section>
+
+<!-- 5 · 操作模型（Q4 唯一機制陳述） -->
+<section class="slide">
+  <div class="lvtag">唯一一句機制——記住這句就夠</div>
+  <h1>它不是回應你最後一句話</h1>
+  <p class="sub" style="max-width:none">模型是從<strong>現在檯面上的全部條件</strong>接著寫下去——你的指示、前文、<strong>它自己剛說過的話</strong>，全都算。</p>
+  <p class="sub" style="margin-top:2vh;font-size:clamp(16px,2vw,24px)">所以對話越長，「檯面上的條件」越重——這就是下一張圖。</p>
+  <div class="pagenum">5 / 12</div>
+</section>
+
+<!-- 6 · 語域地形（Q3，inline SVG） -->
+<section class="slide">
+  <div class="lvtag">一張圖看懂慣性</div>
+  <h1>工作是淺盆，<br>高調敘事是深井</h1>
+  <svg class="terrain" viewBox="0 0 800 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="語域地形：左為工作語域淺盆，右為先知語域深井">
+    <!-- 地形線 -->
+    <path class="ground" d="M 15 108 C 75 108 130 152 210 156 C 300 160 348 98 418 98 C 508 98 538 248 628 252 C 708 256 728 88 788 82"/>
+    <!-- 井底的球 -->
+    <circle class="ball" cx="628" cy="242" r="11"/>
+    <!-- 你的糾正：推不過井壁 -->
+    <path class="push" d="M 618 240 C 592 216 566 192 552 164"/>
+    <path class="head" d="M 545 174 L 552 164 L 561 172"/>
+    <text class="pushlbl" x="498" y="142" text-anchor="middle">你的糾正：推不過井壁</text>
+    <!-- 工作語域（淺盆） -->
+    <text class="lbl" x="210" y="196" text-anchor="middle">工作語域</text>
+    <text class="cap" x="210" y="220" text-anchor="middle">淺盆：容易進，也容易出</text>
+    <!-- 先知語域（深井） -->
+    <text class="lbl" x="628" y="298" text-anchor="middle">先知語域</text>
+    <text class="cap" x="628" y="322" text-anchor="middle">深井：進得去，出不來</text>
+  </svg>
+  <p class="terrain-note">地形是比喻，不是模型內部構造——比喻是我們的，現象是真的。</p>
+  <div class="pagenum">6 / 12</div>
+</section>
+
+<!-- 7 · 三診斷標籤（Q5） -->
+<section class="slide">
+  <div class="lvtag">給每一種歪一個名字</div>
+  <h1>三個標籤，一眼認出</h1>
+  <div class="cards3">
+    <div><div class="lv">CONTEXT DRIFT</div><b>走鐘</b><p>內容離你要的成品越來越遠　→　導正或重開</p></div>
+    <div><div class="lv">REGISTER RUNAWAY</div><b>回音放大</b><p>它自己的話變成它的 context，語氣一輪比一輪高　→　重開</p></div>
+    <div><div class="lv">AUTHORITY ILLUSION</div><b>一本正經的胡說</b><p>格式嚴謹、引用齊全，內容沒查證　→　求證</p></div>
+  </div>
+  <div class="rulebar"><b>提醒：</b>流暢、篤定、有引用——<b>不等於為真</b>。</div>
+  <div class="pagenum">7 / 12</div>
+</section>
+
+<!-- 8 · 指導方針 -->
+<section class="slide">
+  <div class="lvtag">今天的一句話</div>
+  <h1>不是態度，是慣性</h1>
+  <p class="sub" style="margin-top:4vh;border-top:3px double var(--ink);padding-top:3vh;max-width:none">
+    <span class="kicker" style="display:block;margin-bottom:1vh">Guiding Principle · 指導方針</span>
+    <span style="display:block;font-size:clamp(16px,2vw,24px);color:var(--muted);margin-bottom:1.5vh">它不是有態度，是有慣性——看懂慣性，就拉得回來。</span>
+    <span class="quote" style="font-size:clamp(28px,4.2vw,54px)">AI 不是不聽話，<span class="hl">是聽了太多話</span>。</span><br>
+    <span style="font-size:clamp(12px,1.4vw,15px)">從全部條件接著寫，是它的本性——四個動作，是你的方向盤。</span>
+  </p>
+  <div class="pagenum">8 / 12</div>
+</section>
+
+<!-- 9 · demo 說明（Q8） -->
+<section class="slide">
+  <div class="kicker">現場實驗 · 先猜再看</div>
+  <h1>同一句請求，三種世界</h1>
+  <div class="cards3">
+    <div><div class="lv">A</div><b>空白對話</b><p>它只有你這句話</p></div>
+    <div><div class="lv">B</div><b>走鐘對話</b><p>前面六輪高調敘事墊底</p></div>
+    <div><div class="lv">C</div><b>RESET 簡報</b><p>語域、產出、來源都說清楚</p></div>
+  </div>
+  <div class="rulebar"><b>先預測：</b>三個會長什麼樣？——揭曉後記住：示範有隨機性，<b>是現象展示，不是定律</b>。</div>
+  <div class="pagenum">9 / 12</div>
+</section>
+
+<!-- 10 · 實作三級卡 -->
+<section class="slide">
+  <div class="kicker">接下來 · 全部動手</div>
+  <h1>同一套工具，三種深度</h1>
+  <div class="cards3">
+    <div><div class="lv">LEVEL 1 · 入門</div><b>走鐘偵測卡</b><p>找出從哪一句開始歪，決定導正或重開</p></div>
+    <div><div class="lv">LEVEL 2 · 進階</div><b>RESET 卡</b><p>五欄把走鐘對話救回來</p></div>
+    <div><div class="lv">LEVEL 3 · 挑戰</div><b>團隊求證準則</b><p>什麼必須查、誰說了算＋紅隊測試</p></div>
+  </div>
+  <div class="rulebar"><b>規則：</b>每個人都先做 Level 1。想不到題目？用「練習對話一」。<b>所有練習免費版可完成。</b></div>
+  <div class="pagenum">10 / 12</div>
+</section>
+
+<!-- 11 · 四動作總表（橋段 2×2） -->
+<section class="slide">
+  <div class="kicker">口袋裡的四個動作</div>
+  <h1>導正 · 重開 · 求證 · 交回</h1>
+  <div class="cards3" style="grid-template-columns:1fr 1fr">
+    <div><b>導正</b><p>還在淺盆：一句話拉回</p></div>
+    <div><b>重開</b><p>糾正兩次沒用：帶 RESET 卡開新對話</p></div>
+    <div><b>求證</b><p>數字、引用、日期、對外內容：一律查</p></div>
+    <div><b>交回</b><p>AI 判斷不算數的事：人拍板</p></div>
+  </div>
+  <p class="sub"><strong>糾正兩次沒用，就重開</strong>——不要跟井壁加油門。</p>
+  <div class="pagenum">11 / 12</div>
+</section>
+
+<!-- 12 · 收尾 CTA（Q10 系列閉環） -->
+<section class="slide">
+  <div class="kicker">三部曲 · 收官</div>
+  <h1>101 它認識你，102 你放手給它，<br>今天——<em>你認識它</em></h1>
+  <div class="cta-box">
+    <p><b>把 RESET 卡貼進備忘錄。</b>下次越聊越歪，先想四動作，不要加油門。三張卡合起來，就是你和 AI 同事的工作章程。</p>
+  </div>
+  <p class="sub" style="margin-top:3vh;font-size:clamp(16px,2vw,24px)">認識它之後，它還是會錯——所以「求證」和「交回」，永遠是四動作的後兩個。</p>
+  <p class="quote" style="margin-top:3vh;font-size:clamp(26px,4vw,52px)">AI 不是不聽話，<span class="hl">是聽了太多話</span>。</p>
+  <div class="pagenum">12 / 12</div>
+</section>
+
+<div class="navhint">← → 方向鍵或點擊換頁</div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+  }
+  const hint=document.querySelector('.navhint');
+  function hideHint(){ if(hint) hint.style.display='none'; }
+  addEventListener('keydown',e=>{
+    hideHint();
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)) show(i+1);
+    if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)) show(i-1);
+    if(e.key==='Home') show(0);
+    if(e.key==='End') show(slides.length-1);
+  });
+  addEventListener('click',e=>{
+    hideHint();
+    if(e.clientX>innerWidth/2) show(i+1); else show(i-1);
+  });
+</script>
+</body>
+</html>
