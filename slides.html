@@ -343,7 +343,11 @@
   function show(n){
     i=Math.max(0,Math.min(slides.length-1,n));
     slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    history.replaceState(null,'','#'+i);
   }
+  const h0=parseInt((location.hash||'').slice(1));
+  if(Number.isFinite(h0)&&h0>0) show(h0);
+  addEventListener('hashchange',()=>{const h=parseInt(location.hash.slice(1));if(Number.isFinite(h)&&h!==i)show(h);});
   const hint=document.querySelector('.navhint');
   function hideHint(){ if(hint) hint.style.display='none'; }
   addEventListener('keydown',e=>{
