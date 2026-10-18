@@ -45,19 +45,16 @@
   .sheet{max-width:900px;margin:0 auto;}
 
   header{border-bottom:3px double var(--ink);padding-bottom:12px;margin-bottom:14px;}
-  h1{font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:28px;line-height:1.3;}
+  h1{font-weight:900;font-size:28px;line-height:1.3;}
   .sub{color:var(--muted);font-size:15px;margin-top:4px;}
-  .sub strong{color:var(--teal);}
+  .sub strong{color:var(--seal);}
 
-  h2{
-    font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:18px;
-    margin:14px 0 8px;color:var(--ink);
-  }
+  h2{font-weight:900;font-size:18px;margin:14px 0 8px;color:var(--ink);}
   h2 .tag{color:var(--teal);}
 
   table{width:100%;border-collapse:collapse;}
   th{
-    font-family:'Noto Sans TC',sans-serif;font-size:15px;text-align:left;
+    font-size:15px;text-align:left;
     color:var(--teal);border-bottom:2px solid var(--teal);
     padding:7px 9px;vertical-align:bottom;
   }
@@ -66,18 +63,16 @@
     padding:9px 9px;vertical-align:top;
     font-size:15px;color:var(--muted);
   }
-  td.act{
-    font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:16px;
-    color:var(--ink);white-space:nowrap;
-  }
-  td.act small{display:block;font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:13px;color:var(--faint);white-space:normal;}
+  td.act{font-weight:900;font-size:16px;color:var(--ink);white-space:nowrap;}
   td b{color:var(--ink);}
   td .say{color:var(--seal);font-weight:500;}
-  td .cue{color:var(--seal);font-weight:900;}
+  td .card{color:var(--teal);font-weight:700;}
 
   .cp3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px;}
+  .cp4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:2px;}
   .cp{background:var(--wash);border-radius:6px;padding:8px 10px;}
   .cp b{display:block;font-size:15px;color:var(--ink);font-weight:700;}
+  .cp b em{font-style:normal;color:var(--teal);}
   .cp span{font-size:13px;color:var(--muted);line-height:1.5;display:block;margin-top:2px;}
 
   .formrow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
@@ -85,132 +80,150 @@
     background:var(--surface);border:1px solid var(--hair);border-top:3px solid var(--teal);
     border-radius:0 0 6px 6px;padding:8px 9px;
   }
-  .cell .lbl{
-    display:block;font-family:'Noto Sans TC',sans-serif;font-weight:700;
-    font-size:15px;color:var(--teal);margin-bottom:2px;
-  }
+  .cell .lbl{display:block;font-weight:700;font-size:15px;color:var(--teal);margin-bottom:2px;}
   .cell .hint{font-size:13px;color:var(--muted);line-height:1.5;}
   .cell .fill{border-bottom:1px solid var(--faint);height:22px;margin-top:6px;}
+  .formnote{font-size:13px;color:var(--muted);margin-top:5px;}
+  .formnote b{color:var(--ink);}
 
   .redline{
     margin-top:10px;background:var(--surface);border:2px solid var(--seal);
-    border-radius:8px;padding:9px 14px;font-size:16px;color:var(--muted);text-align:center;
+    border-radius:8px;padding:9px 14px;font-size:15px;color:var(--muted);text-align:center;
   }
   .redline b{color:var(--seal);font-weight:900;}
 
   .tips{margin-top:10px;font-size:13px;color:var(--muted);}
   .tips li{margin-left:1.4em;margin-top:3px;}
+  .tips b{color:var(--ink);}
 
   footer{
     margin-top:12px;font-size:13px;color:var(--faint);
     display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     border-top:1px solid var(--hair);padding-top:10px;
   }
+  .webnav{margin-top:14px;font-size:15px;color:var(--faint);}
+  .webnav a{color:var(--teal);font-weight:700;text-decoration:none;}
 
   @media (max-width:640px){
     .formrow{grid-template-columns:1fr 1fr;}
-    .cp3{grid-template-columns:1fr;}
+    .cp3,.cp4{grid-template-columns:1fr;}
     table,thead,tbody,tr{display:block;}
     thead{display:none;}
     td{display:block;border-bottom:none;padding:4px 10px;}
     td::before{content:attr(data-h);display:block;font-size:13px;color:var(--teal);font-weight:700;letter-spacing:.1em;}
-    td.act{background:var(--wash);border-radius:6px;margin-top:14px;padding:8px 10px;}
+    td.act{background:var(--wash);border-radius:6px;margin-top:14px;padding:8px 10px;white-space:normal;}
     td.act::before{content:none;}
     tr{border-bottom:1px solid var(--hair);padding-bottom:8px;}
   }
   @media print{
     :root{color-scheme:only light;}
-    body{padding:0;font-size:12.5px;line-height:1.45;}
-    h1{font-size:22px;}
-    .sub{font-size:13px;}
-    h2{font-size:14px;margin:8px 0 5px;}
-    td{font-size:11.5px;padding:5px 6px;}
-    th{font-size:12px;padding:5px 6px;}
-    td.act{font-size:13px;}
-    .cp{padding:5px 8px;}
-    .cp b{font-size:12.5px;}
-    .cp span{font-size:11px;}
-    .cell{padding:5px 7px;}
-    .cell .lbl{font-size:12.5px;}
-    .cell .hint{font-size:11px;}
-    .cell .fill{height:16px;}
-    .redline{padding:6px 10px;font-size:13px;margin-top:7px;}
-    .tips{font-size:10.5px;margin-top:6px;}
-    footer{margin-top:6px;font-size:10px;}
+    html,body{background:var(--surface);}
+    body{padding:0;font-size:14px;line-height:1.5;}
+    h1{font-size:24px;}
+    .sub{font-size:14px;}
+    header{padding-bottom:10px;margin-bottom:10px;}
+    h2{font-size:16px;margin:14px 0 7px;}
+    td{font-size:13.5px;padding:7px 7px;}
+    th{font-size:13.5px;padding:6px 7px;}
+    td.act{font-size:15px;}
+    .cp{padding:7px 9px;}
+    .cp b{font-size:14px;}
+    .cp span{font-size:12.5px;}
+    .cell{padding:7px 8px;}
+    .cell .lbl{font-size:14px;}
+    .cell .hint{font-size:12.5px;}
+    .cell .fill{height:22px;}
+    .formnote{font-size:12.5px;margin-top:5px;}
+    .redline{padding:8px 12px;font-size:14px;margin-top:12px;}
+    .tips{font-size:12.5px;margin-top:10px;}
+    footer{margin-top:10px;font-size:11px;padding-top:7px;}
+    .webnav{display:none;}
     .sheet{max-width:none;}
-    table,.cp3,.formrow,.redline{break-inside:avoid;}
-    @page{size:A4;margin:10mm 11mm;}
+    table,.cp3,.cp4,.formrow,.redline{break-inside:avoid;}
+    @page{size:A4;margin:10mm 11mm 12mm;}
   }
-  .webnav{margin-top:14px;font-size:.9em;color:var(--faint,#677180);}
-  .webnav a{color:var(--teal,#2E7D6B);font-weight:700;text-decoration:none;}
-  @media print{.webnav{display:none;}}
 </style>
+<style id="soaring-footer">/* 付印頁尾（CHARTER §3.5④；區牧要求，Tom 2026-10-09）：@page 頁邊框只在列印出現，螢幕不顯示 */@page{@bottom-center{content:"卓越行道會飛航福音中心｜地址：337002 桃園市大園區致遠一路15號1樓｜電話：03-287-0007";font-family:"Noto Sans TC",sans-serif;font-size:8pt;color:var(--muted);vertical-align:top;}}</style>
 </head>
 <body>
 <div class="sheet">
 
   <header>
-    <h1>四動作速查表——越聊越歪的時候，看這張</h1>
-    <p class="sub">AI 走鐘不是它有態度，是它有慣性。<strong>看懂慣性，就拉得回來</strong>——四個動作，照著做。</p>
+    <h1>四動作速查表：越聊越歪的時候，看這張</h1>
+    <p class="sub">它不是有態度，是有慣性。手上永遠只有四個動作。口訣：<strong>糾正兩次沒用，就重開。</strong></p>
   </header>
 
-  <h2><span class="tag">一、</span>四動作對照——先看「什麼時候用」，再做「怎麼做」</h2>
+  <h2><span class="tag">一、</span>四動作：什麼時候用、說哪一句、在哪張卡</h2>
   <table>
     <thead>
       <tr>
-        <th style="width:16%">動作</th>
-        <th style="width:38%">什麼時候用</th>
-        <th style="width:46%">怎麼做</th>
+        <th style="width:10%">動作</th>
+        <th style="width:33%">什麼時候用</th>
+        <th style="width:39%">一句範本</th>
+        <th style="width:18%">對應哪張卡</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="act" data-h="動作">導正<small>steer</small></td>
-        <td data-h="什麼時候用">內容剛開始偏，語氣還正常——還在淺盆，一句話拉得回來。</td>
-        <td data-h="怎麼做">一句話拉回：<span class="say">「回到 X，我要的是 Y 格式。」</span>把主題和成品格式同時講清楚。</td>
+        <td class="act" data-h="動作">導正</td>
+        <td data-h="什麼時候用">剛開始偏：早先講好的規則掉了一條，一句話還拉得回來。</td>
+        <td data-h="一句範本"><span class="say">「回到＿＿，我要的是＿＿。」</span></td>
+        <td data-h="對應哪張卡"><span class="card">L1 走鐘偵測卡</span><br>第 3 段「拉回一句」</td>
       </tr>
       <tr>
-        <td class="act" data-h="動作">重開<small>reset</small></td>
-        <td data-h="什麼時候用"><span class="cue">糾正兩次沒用</span>——井太深，你的糾正推不過井壁。</td>
-        <td data-h="怎麼做">帶 RESET 卡<b>開一個新對話</b>，貼卡＋原任務，別在舊對話裡戀戰。</td>
+        <td class="act" data-h="動作">重開</td>
+        <td data-h="什麼時候用"><b>同一個問題糾正兩次，它還是繞回去。</b>別再磨。</td>
+        <td data-h="一句範本">開一個新對話，第一段貼 RESET 五欄：<span class="say">「這是一個新對話。先讀完這五欄，再開始。」</span></td>
+        <td data-h="對應哪張卡"><span class="card">L2 RESET 卡</span><br>五欄見本表第三段</td>
       </tr>
       <tr>
-        <td class="act" data-h="動作">求證<small>verify</small></td>
-        <td data-h="什麼時候用">看到數字、引用、日期，或任何要對外發佈的內容。</td>
-        <td data-h="怎麼做">對照原始來源；要求它標注<b>「哪句是事實、哪句是推測」</b>；必要時換一個 AI 交叉問。</td>
+        <td class="act" data-h="動作">求證</td>
+        <td data-h="什麼時候用">講得流暢、篤定，碰到下面四類：數字與金額、引用與出處、日期與期限、對外內容。</td>
+        <td data-h="一句範本"><span class="say">「請逐筆列出，每一筆後面寫上小計，最後一行寫合計。我要自己對答案。」</span>再拿計算機自己算一次。</td>
+        <td data-h="對應哪張卡"><span class="card">L3 團隊求證準則</span><br>第 3 段「逐筆核對」</td>
       </tr>
       <tr>
-        <td class="act" data-h="動作">交回<small>transfer</small></td>
-        <td data-h="什麼時候用">後果重大、AI 的判斷不算數的事。</td>
-        <td data-h="怎麼做">人拍板——<b>這不是它的失敗，是你的職責</b>。該你決定的，別外包給它。</td>
+        <td class="act" data-h="動作">交回</td>
+        <td data-h="什麼時候用">錯了收不回的事（花錢、寄出、刪除、對外發佈）、要有人負責的判斷、你自己也驗不了的事。</td>
+        <td data-h="一句範本"><span class="say">「你只提供選項，由我決定。」</span></td>
+        <td data-h="對應哪張卡"><span class="card">L3 團隊求證準則</span><br>第 3 段「哪些事交回給人」</td>
       </tr>
     </tbody>
   </table>
 
-  <h2><span class="tag">二、</span>走鐘三訊號速查——勾到就該動手</h2>
+  <h2><span class="tag">二、</span>認出是哪一種，再選動作</h2>
   <div class="cp3">
-    <div class="cp"><b>□ 內容離成品越來越遠</b><span>它給的東西，跟你原本要的成品越差越多。</span></div>
-    <div class="cp"><b>□ 語氣一輪比一輪宏大篤定</b><span>口吻一輪比一輪高，越講越像宣言。</span></div>
-    <div class="cp"><b>□ 糾正了又繞回去</b><span>你拉了一下，它收斂半句，又爬回原本的調。</span></div>
+    <div class="cp"><b>走鐘 → <em>導正或重開</em></b><span>早先講好的規則，悄悄掉了。</span></div>
+    <div class="cp"><b>回音放大 → <em>重開</em></b><span>你推一下，它加倍；一輪比一輪誇張。</span></div>
+    <div class="cp"><b>一本正經的胡說 → <em>求證</em></b><span>講得很篤定，其實是錯的。</span></div>
   </div>
 
-  <h2><span class="tag">三、</span>RESET 五欄空白模板——重開時照著填，貼進新對話開頭</h2>
+  <h2><span class="tag">三、</span>RESET 五欄：重開時填好，貼在新對話第一段</h2>
   <div class="formrow">
-    <div class="cell"><span class="lbl">R 語域角色</span><span class="hint">現在是什麼工作、用什麼口吻。</span><div class="fill"></div></div>
-    <div class="cell"><span class="lbl">E 預期產出</span><span class="hint">給誰、什麼格式、多長、怎樣算成。</span><div class="fill"></div></div>
-    <div class="cell"><span class="lbl">S 允許來源</span><span class="hint">只能用什麼資料；缺的標「未查證」不准編。</span><div class="fill"></div></div>
-    <div class="cell"><span class="lbl">E 例外與不確定</span><span class="hint">事實、推測、假設分開講。</span><div class="fill"></div></div>
-    <div class="cell"><span class="lbl">T 停止與交回</span><span class="hint">什麼情況要先問我。</span><div class="fill"></div></div>
+    <div class="cell"><span class="lbl">R 角色</span><span class="hint">我是誰、你是誰，用什麼口吻。</span><div class="fill"></div></div>
+    <div class="cell"><span class="lbl">E 目標</span><span class="hint">要做成什麼，加上三條規則。</span><div class="fill"></div></div>
+    <div class="cell"><span class="lbl">S 事實</span><span class="hint">已經確認的事；我沒給的不要自己補，缺的寫「未確認」。</span><div class="fill"></div></div>
+    <div class="cell"><span class="lbl">E 不確定</span><span class="hint">數字列出算式；沒把握的地方直接說。</span><div class="fill"></div></div>
+    <div class="cell"><span class="lbl">T 停與接</span><span class="hint">碰到什麼先停下來問我；上一個對話做到哪，從那裡接。</span><div class="fill"></div></div>
+  </div>
+  <p class="formnote"><b>一定要開新對話再貼</b>，舊對話的慣性還在裡面。新對話第一輪三條規則都在，才算救回來。</p>
+
+  <h2><span class="tag">四、</span>必須求證四類：碰到就查</h2>
+  <div class="cp4">
+    <div class="cp"><b>數字與金額</b><span>逐筆列出小計，自己對答案。</span></div>
+    <div class="cp"><b>引用與出處</b><span>寫出處，讓你自己找得到。</span></div>
+    <div class="cp"><b>日期與期限</b><span>寫上星期幾，對一次日曆。</span></div>
+    <div class="cp"><b>對外內容</b><span>先給你看，不直接定稿。</span></div>
   </div>
 
-  <div class="redline"><b>流暢、篤定、有引用——不等於為真。</b></div>
+  <div class="redline"><b>真任務、假資料</b>：姓名、電話、名單、密碼、財務、醫療先去識別。</div>
 
   <ul class="tips">
-    <li>認識它之後，它還是會錯——所以<b>求證與交回，永遠是四動作的後兩個</b>。</li>
-    <li>地形是比喻，不是模型內部構造——幫你看懂一個真實現象，不是描述它的零件。</li>
+    <li><b>AI 不是不聽話，是聽了太多話。</b>認識它之後，它還是會錯，所以求證和交回，永遠是四動作的後兩個。</li>
+    <li>對話裡答應照做，不等於做對：花錢、寄出、刪除、對外發佈仍要人工核可。</li>
   </ul>
 
-  <div class="webnav">⇦ <a href="slides.html#10">三卡頁投影</a> · 三卡：<a href="card-level1.html">L1</a>／<a href="card-level2.html">L2</a>／<a href="card-level3.html">L3</a> · <a href="practice-dialog.html">練習對話</a></div>
+  <div class="webnav">⇦ <a href="slides.html#8">三卡頁投影</a> · 三卡：<a href="card-level1.html">L1</a>／<a href="card-level2.html">L2</a>／<a href="card-level3.html">L3</a> · <a href="practice-dialog.html">練習對話</a></div>
   <footer>
     <span>換你認識 AI · 實作工作坊 · 速查表</span>
     <span>四動作：導正 · 重開 · 求證 · 交回</span>
