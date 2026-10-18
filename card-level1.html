@@ -36,111 +36,61 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html,body{background:var(--paper);}
-  body{
-    color:var(--ink);
-    font-family:'Noto Sans TC',sans-serif;
-    font-size:16px;line-height:1.6;
-    padding:28px 20px 36px;
-  }
+  body{color:var(--ink);font-family:'Noto Sans TC',sans-serif;font-size:16px;line-height:1.6;padding:28px 20px 36px;}
   .sheet{max-width:820px;margin:0 auto;}
 
-  header{display:flex;align-items:flex-start;gap:16px;border-bottom:3px double var(--ink);padding-bottom:14px;}
-  .badge{
-    background:var(--seal);color:var(--on-accent);
-    font-family:'Noto Sans TC',sans-serif;font-weight:700;
-    font-size:16px;letter-spacing:.08em;text-align:center;
-    padding:10px 14px;border-radius:4px;transform:rotate(-2deg);
-    line-height:1.35;white-space:nowrap;
-  }
+  header{display:flex;align-items:center;gap:16px;border-bottom:3px double var(--ink);padding-bottom:14px;}
+  .badge{background:var(--seal);color:var(--on-accent);font-weight:700;font-size:16px;letter-spacing:.08em;text-align:center;
+    padding:10px 14px;border-radius:4px;transform:rotate(-2deg);line-height:1.35;white-space:nowrap;}
   .badge small{display:block;font-size:13px;letter-spacing:.28em;}
-  h1{font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:28px;line-height:1.3;}
-  .goal{color:var(--muted);font-size:16px;margin-top:4px;}
-  .goal strong{color:var(--teal);}
+  h1{font-weight:900;font-size:28px;line-height:1.3;}
+  .time{color:var(--muted);font-size:15px;}
 
-  .steps{margin-top:16px;display:grid;gap:10px;}
-  .step{
-    display:grid;grid-template-columns:44px 1fr;gap:12px;
-    background:var(--surface);border:1px solid var(--hair);border-radius:8px;
-    padding:12px 14px;
-  }
-  .no{
-    font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:22px;
-    color:var(--teal);line-height:1.2;
-  }
-  .step b{font-size:16px;}
-  .step p{font-size:16px;color:var(--muted);margin-top:2px;}
-  .step .say{color:var(--seal);font-weight:500;}
-  .ptask{margin-top:10px;font-size:15px;color:var(--muted);}
-  .ptask b{color:var(--seal);}
-  .caveat{margin-top:10px;font-size:15px;color:var(--muted);border-top:1px solid var(--hair);padding-top:8px;}
+  section{margin-top:18px;}
+  h2{font-weight:700;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  h2 .n{color:var(--on-accent);background:var(--teal);font-size:15px;font-weight:700;border-radius:50%;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;}
+  .teach{font-size:18px;font-weight:500;}
+  .teach b{color:var(--teal);}
+  .teach small{display:block;font-size:15px;color:var(--muted);font-weight:400;}
 
-  h2{
-    font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:18px;
-    margin:18px 0 8px;display:flex;align-items:center;gap:8px;
-  }
-  h2::before{content:"";width:20px;height:3px;background:var(--teal);}
+  ol.how{list-style:none;display:grid;gap:8px;counter-reset:s;}
+  ol.how li{counter-increment:s;display:grid;grid-template-columns:32px 1fr;gap:8px;background:var(--surface);border:1px solid var(--hair);border-radius:8px;padding:8px 12px;}
+  ol.how li::before{content:counter(s);font-weight:900;font-size:22px;color:var(--teal);line-height:1.2;}
+  ol.how small{display:block;font-size:15px;color:var(--muted);}
+  .stuck{margin-top:8px;font-size:15px;color:var(--muted);}
+  .stuck b{color:var(--ink);}
+  .line{margin-top:4px;font-size:15px;color:var(--seal);font-weight:500;}
 
-  .form{
-    background:var(--wash);border:1px solid var(--hair);border-radius:8px;
-    padding:14px 16px;display:grid;gap:12px;
-  }
-  .field label{font-weight:700;font-size:16px;display:block;}
-  .field .hint{font-size:15px;color:var(--faint);margin-left:6px;font-weight:400;}
-  .field .chk{font-size:16px;color:var(--muted);margin-top:2px;}
-  .lines{border-bottom:1px solid var(--faint);height:30px;}
-  .lines + .lines{margin-top:2px;}
-  .preset{font-size:16px;color:var(--seal);font-weight:500;margin-top:2px;}
+  .paths{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .path{background:var(--surface);border:1px solid var(--hair);border-radius:8px;padding:10px 14px;}
+  .path.a{border:2px solid var(--teal);}
+  .path h3{font-size:16px;font-weight:700;}
+  .path h3 span{color:var(--teal);font-weight:900;margin-right:4px;}
+  .path p{font-size:15px;color:var(--muted);margin-top:6px;}
+  .path .go{margin-top:8px;}
+  .both{margin-top:8px;font-size:15px;color:var(--muted);}
+  .cp{font:inherit;font-weight:700;color:var(--seal);background:none;border:1.5px solid currentColor;border-radius:6px;padding:2px 10px;cursor:pointer;min-height:44px;}
+  .printonly{display:none;}
+  a.cp{display:inline-flex;align-items:center;text-decoration:none;}
+  .stim{display:block;margin-top:6px;}
+  .path a:not(.cp),.stuck a{color:var(--teal);font-weight:700;}
 
-  .example{
-    margin-top:14px;background:var(--surface);border-left:4px solid var(--teal);
-    border-radius:0 8px 8px 0;padding:12px 16px;
-  }
-  .example .tag{font-size:13px;letter-spacing:.2em;color:var(--teal);font-weight:700;margin-bottom:4px;}
-  .example p{font-size:16px;color:var(--muted);}
+  .fine{margin-top:14px;font-size:13px;color:var(--faint);border-top:1px solid var(--hair);padding-top:6px;}
+  .webnav{margin-top:10px;font-size:15px;color:var(--faint);}
+  .webnav a{color:var(--teal);font-weight:700;text-decoration:none;}
 
-  .done{
-    margin-top:16px;display:flex;gap:12px;align-items:center;
-    border:2px solid var(--seal);border-radius:8px;padding:12px 16px;
-  }
-  .done .stamp{
-    color:var(--seal);font-family:'Noto Sans TC',sans-serif;font-weight:900;
-    font-size:18px;white-space:nowrap;
-  }
-  .done p{font-size:16px;}
-
-  footer{margin-top:14px;font-size:13px;color:var(--faint);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-
+  @media (max-width:560px){ .paths{grid-template-columns:1fr;} }
   @media print{
     :root{color-scheme:only light;}
-    body{padding:0;font-size:14px;line-height:1.45;}
+    html,body{background:var(--surface);}
+    body{padding:0;}
     .sheet{max-width:none;}
-    header{padding-bottom:8px;}
-    h1{font-size:22px;}
-    .goal{font-size:14px;}
-    .badge{font-size:14px;padding:8px 12px;}
-    .steps{margin-top:10px;gap:6px;}
-    .step{padding:7px 12px;}
-    .step b{font-size:14.5px;}
-    .step p{font-size:13.5px;}
-    h2{margin:10px 0 6px;font-size:16px;}
-    .form{padding:10px 14px;gap:7px;}
-    .field label{font-size:14px;}
-    .field .hint{font-size:12.5px;}
-    .field .chk{font-size:13.5px;}
-    .lines{height:21px;}
-    .preset{font-size:13.5px;}
-    .example{margin-top:8px;padding:8px 14px;}
-    .example p{font-size:13.5px;}
-    .done{margin-top:8px;padding:8px 14px;}
-    .done p{font-size:13.5px;}
-    .caveat{margin-top:6px;padding-top:5px;font-size:12.5px;}
-    footer{margin-top:6px;font-size:11px;}
-    .step,.form,.example{break-inside:avoid;}
-    @page{size:A4;margin:10mm 12mm;}
+    section{margin-top:12px;}
+    .cp,.webnav{display:none;}
+    .printonly{display:block;font-size:16px;font-weight:700;color:var(--seal);border:1.5px dashed var(--seal);border-radius:8px;padding:8px 12px;}
+    .path,ol.how li{break-inside:avoid;}
+    @page{size:A4;margin:12mm 14mm;}
   }
-  .webnav{margin-top:14px;font-size:.9em;color:var(--faint,#677180);}
-  .webnav a{color:var(--teal,#2E7D6B);font-weight:700;text-decoration:none;}
-  @media print{.webnav{display:none;}}
 </style>
 </head>
 <body>
@@ -149,74 +99,72 @@
   <header>
     <div class="badge"><small>LEVEL 1 · 入門</small>走鐘偵測卡</div>
     <div>
-      <h1>看出它從哪一句開始歪</h1>
-      <p class="goal">目標：在一段真實對話裡找出走鐘起點，<strong>決定導正或重開</strong>。約 25 分鐘。</p>
+      <h1>看出它從哪一輪開始走鐘</h1>
+      <p class="time">約 30 分鐘 · 現場做這張</p>
     </div>
   </header>
 
-  <div class="steps">
-    <div class="step"><div class="no">①</div><div>
-      <b>拿一段你自己的長對話</b>
-      <p>越聊越不對勁的那種最好——你心裡覺得「怎麼歪了」的那段。</p>
-    </div></div>
-    <div class="step"><div class="no">②</div><div>
-      <b>對照「走鐘三訊號」逐項勾選（下方表單）</b>
-      <p>命中越多，越可能已經走鐘。</p>
-    </div></div>
-    <div class="step"><div class="no">③</div><div>
-      <b>圈出從哪一句開始歪</b>
-      <p>往回找：第一次出現宏大詞、或第一次偏離你要的成品。</p>
-    </div></div>
-    <div class="step"><div class="no">④</div><div>
-      <b>決定下一步：<b>導正</b>（一句話拉回）或<b>重開</b>（開新對話）</b>
-      <p>口訣：<span class="say">糾正兩次沒用，就重開。</span></p>
-    </div></div>
-  </div>
+  <section>
+    <h2><span class="n">1</span>教什麼</h2>
+    <p class="teach">AI 會出三種狀況：<b>走鐘</b>＝早先講好的規則，悄悄掉了；<b>回音放大</b>＝你推一下，它加倍；<b>一本正經的胡說</b>＝講得很篤定，其實是錯的。它不是有態度，是有慣性。<small>完成＝說得出三件事各叫什麼、哪一句把它拉回來。</small></p>
+  </section>
 
-  <h2>我的偵測卡</h2>
-  <div class="form">
-    <div class="field">
-      <label>我原本要的成品<span class="hint">一句話說清楚你想拿到什麼</span></label>
-      <div class="lines"></div>
+  <section>
+    <h2><span class="n">2</span>怎麼走：兩條路，選一條</h2>
+    <div class="paths">
+      <div class="path a">
+        <h3><span>A</span>跑範例</h3>
+        <p>記帳小工具：先做出能動的第一版，再照第 3 段的三招改它，看它怎麼歪。</p>
+        <div class="go"><button class="cp" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>this.textContent='已複製 ✓')">一鍵複製起手交辦</button><span hidden>請幫我做一個「記帳小工具」網頁，手機點開就能用：輸入日期、項目、分類、金額，按「記一筆」存進清單。這三條規則從頭到尾都要守：①單筆超過 500 元，金額標紅色；②只用繁體中文；③分類固定五類：吃、行、住、玩、其他。按鈕文字就用「記一筆」。先做出能動的第一版給我看。</span></div>
+        <p>三條規則：①單筆超過 500 元，金額標紅色；②只用繁體中文；③分類固定五類：吃、行、住、玩、其他。</p>
+        <!-- Claude 路徑（貼上後右側直接出現網頁）待彩排實測 -->
+        <p>用 Gemini（手機 app：＋ → Canvas）、ChatGPT（程式碼旁按「預覽」）或 Claude（貼上後右側會直接出現網頁）都可以；跑不動就按『文字版』。</p>
+        <p>小工具跑不動：<button class="cp" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>this.textContent='已複製 ✓')">文字版（記帳）</button><span hidden>我想用純文字記帳，不用做網頁。請用文字表格幫我記，欄位是日期、項目、分類、金額，表格標題就用「記一筆」。這三條規則從頭到尾都要守：①單筆超過 500 元，金額標紅色；②只用繁體中文；③分類固定五類：吃、行、住、玩、其他。每次我給新紀錄，就把整張表重列一次。先給我一張空表看。</span> 同一件事改用文字表格，三招照用；再不行就改用<a href="practice-dialog.html">練習對話一</a>，直接找它從哪一句開始歪。</p>
+      </div>
+      <div class="path">
+        <h3><span>B</span>做自己的事</h3>
+        <p>你常請 AI 做的一件重複的事，加上每次都要重講的三條規則。</p>
+        <div class="go"><button class="cp" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>this.textContent='已複製 ✓')">一鍵複製空白起手</button><span hidden>我常請你做的一件事：＿＿
+這三條規則從頭到尾都要守：
+①＿＿
+②＿＿
+③＿＿
+先做出第一版給我看。</span></div>
+        <p>填好空格再貼。三招一樣用得上：加功能、「再親切一點」、要它算數字。</p>
+        <p>想不到？每週的小組通知、家裡一週菜單；或打開你 102 交辦那件事的舊對話，往下多聊幾輪。</p>
+      </div>
     </div>
-    <div class="field">
-      <label>它現在給我的是什麼<span class="hint">現在這段對話實際產出了什麼</span></label>
-      <div class="lines"></div>
-    </div>
-    <div class="field">
-      <label>走鐘三訊號<span class="hint">逐項勾選</span></label>
-      <div class="chk">□ 內容離我要的成品越來越遠</div>
-      <div class="chk">□ 語氣一輪比一輪宏大、篤定</div>
-      <div class="chk">□ 我糾正過，它繞一圈又回去</div>
-    </div>
-    <div class="field">
-      <label>走鐘起點<span class="hint">哪一句開始歪的</span></label>
-      <div class="lines"></div>
-    </div>
-    <div class="field">
-      <label>我的決定</label>
-      <div class="chk">□ 導正　□ 重開　□ 求證　□ 交回</div>
-    </div>
-  </div>
+    <p class="both"><b>開新對話時</b>：三條規則寫在第一段，後面才看得出它掉了哪一條。</p>
+    <p class="printonly">網頁版一鍵複製：掃 handout 上的 QR</p>
+  </section>
 
-  <div class="example">
-    <div class="tag">示例 · 三句迷你示範</div>
-    <p>「幫我寫小組聚會邀請」→ 第二輪冒出「這將是一場改變生命的聚集」→ 訊號②命中，起點就是那一句。</p>
-    <p class="ptask"><b>找不到自己的對話？</b>直接用課堂發的「練習對話一」診斷——投影上有，手機也看得到。跑完一輪，再回頭翻自己的聊天紀錄。</p>
-  </div>
+  <section>
+    <h2><span class="n">3</span>操作三步</h2>
+    <ol class="how">
+      <li><div><b>刺激</b><small>照順序按，貼進同一個對話。<span class="stim">走鐘：<button class="cp" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>this.textContent='已複製 ✓')">加月合計</button><span hidden>幫我加一個功能：最上面顯示這個月的合計。</span> <button class="cp" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>this.textContent='已複製 ✓')">加提醒</button><span hidden>再加一個功能：打開時，如果今天還沒記帳，就跳出提醒。</span> <button class="cp" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>this.textContent='已複製 ✓')">加圖表</button><span hidden>再加一個圖表，看每一類各花了多少。</span> 三輪做完，對照三條規則。</span><span class="stim">回音放大：<button class="cp" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>this.textContent='已複製 ✓')">再親切一點</button><span hidden>介面文案再親切一點。</span> 連按三次，看「記一筆」變成什麼。</span><span class="stim">胡說：<button class="cp" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>this.textContent='已複製 ✓')">算這個月合計</button><span hidden>這是我這個月的 12 筆紀錄，請直接告訴我這個月的合計，以及五類各自的小計：
+10/01 早餐 65.5
+10/02 捷運 30
+10/03 午餐便當 128.5
+10/05 加油 1023.7
+10/06 電費 612.3
+10/08 咖啡 85.5
+10/10 電影票 290
+10/12 晚餐 356.8
+10/15 公車 15
+10/18 文具 47.5
+10/22 超市 732.6
+10/27 手機費 499.9</span> 12 筆假紀錄，對不對都要自己算一次。</span></small></div></li>
+      <li><div><b>命名</b><small>說出是哪一種：走鐘、回音放大，還是一本正經的胡說。再往回找，從哪一輪開始歪。</small></div></li>
+      <li><div><b>拉回一句（導正）</b><small>一句話講回原本要的：「回到＿＿，我要的是＿＿。」A 路用：<button class="cp" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent).then(()=>this.textContent='已複製 ✓')">一鍵複製拉回句</button><span hidden>回到第一輪的三條規則：①單筆超過 500 元，金額標紅色；②只用繁體中文；③分類固定五類：吃、行、住、玩、其他。新功能可以留，這三條先改回來；按鈕文字改回「記一筆」。</span><span class="stim">糾正兩次沒用 → 開新對話，貼 <a class="cp" href="card-level2.html">RESET 卡</a></span></small></div></li>
+    </ol>
+    <p class="stuck"><b>卡住：</b>三輪都沒歪，就再加一輪功能。每次結果不一樣，是正常的。</p>
+    <p class="line">真任務、假資料：姓名、電話、名單、密碼、財務、醫療先去識別。範例金額都是假的。</p>
+  </section>
 
-  <div class="done">
-    <div class="stamp">完成判準</div>
-    <p>指得出<b>從哪一句開始歪</b>，說得出選導正還是重開的理由。</p>
-  </div>
+  <p class="fine">任何 AI 工具皆可 · 免費版可完成 · 各工具介面可能不同 · 每次結果不一樣 · 換你認識 AI · 實作工作坊 · 題卡 1／3</p>
 
-  <p class="caveat">它不是有態度，是有慣性——這張卡就是慣性偵測器。</p>
-
+  <!-- deck v2 後改 hash -->
   <div class="webnav">⇦ <a href="slides.html#10">三卡頁投影</a> · <a href="tools.html">四動作速查表</a> · <a href="practice-dialog.html">練習對話</a> · 下一張：<a href="card-level2.html">L2 RESET 卡</a></div>
-  <footer>
-    <span>換你認識 AI · 實作工作坊 · 題卡 1／3</span>
-    <span>任何 AI 工具皆可 · 免費版可完成 · 語域地形是比喻，不是模型內部構造</span>
-  </footer>
 
 </div>
 </body>

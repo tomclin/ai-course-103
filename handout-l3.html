@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>團隊求證準則 L3 說明</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light dark;
+    --paper:#F7F6F2;
+    --surface:#FFFFFF;
+    --ink:#17263B;
+    --muted:#3D4A5C;
+    --faint:#677180;
+    --teal:#2E7D6B;
+    --seal:#B5432E;
+    --hair:#D9D6CE;
+    --on-accent:#FDFBF7;
+    --wash:#EDF3F1;
+    --qrpaper:#FFFFFF;--qrink:#000000;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#14181F;--surface:#1C222B;--ink:#E8E5DE;--muted:#B4BCC7;--faint:#87919D;
+      --teal:#4FA893;--seal:#D4664F;--hair:#2A3038;--on-accent:#16100E;--wash:#1A2420;
+      --qrpaper:#FFFFFF;--qrink:#000000;
+    }
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:var(--paper);}
+  body{color:var(--ink);font-family:'Noto Sans TC',sans-serif;font-size:16px;line-height:1.65;padding:28px 20px 36px;}
+  .sheet{max-width:760px;margin:0 auto;}
+  header{display:flex;align-items:center;gap:16px;border-bottom:3px double var(--ink);padding-bottom:12px;}
+  .badge{background:var(--ink);color:var(--paper);font-weight:700;font-size:16px;letter-spacing:.08em;text-align:center;
+    padding:10px 14px;border-radius:4px;transform:rotate(-2deg);line-height:1.35;white-space:nowrap;}
+  .badge small{display:block;font-size:13px;letter-spacing:.28em;}
+  .ttl{flex:1;}
+  h1{font-weight:900;font-size:28px;line-height:1.3;}
+  .sub{color:var(--muted);font-size:15px;}
+  .qr{flex:0 0 auto;text-align:center;font-size:13px;color:var(--muted);}
+  .qr svg{display:block;width:28mm;height:28mm;}
+  h2{font-weight:700;font-size:18px;margin:16px 0 4px;color:var(--teal);}
+  p,li{font-size:16px;}
+  .k{font-weight:700;}
+  ol,ul{padding-left:1.4em;}
+  li+li{margin-top:2px;}
+  ol li::before{content:"□\00a0";font-size:18px;}
+  dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;}
+  dt{font-weight:700;color:var(--seal);white-space:nowrap;}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
+  .pair div{background:var(--wash);border-radius:8px;padding:8px 12px;}
+  .pair b{display:block;}
+  .fine{margin-top:16px;font-size:13px;color:var(--faint);border-top:1px solid var(--hair);padding-top:6px;}
+  @media (max-width:560px){ .pair{grid-template-columns:1fr;} header{flex-wrap:wrap;} }
+  @media print{
+    :root{color-scheme:only light;}
+    html,body{background:var(--surface);}
+    body{padding:0;}
+    .sheet{max-width:none;}
+    @page{size:A4;margin:14mm 16mm;}
+  }
+</style>
+<style id="soaring-footer">/* 付印頁尾（CHARTER §3.5④；區牧要求，Tom 2026-10-09）：@page 頁邊框只在列印出現，螢幕不顯示 */@page{@bottom-center{content:"卓越行道會飛航福音中心｜地址：337002 桃園市大園區致遠一路15號1樓｜電話：03-287-0007";font-family:"Noto Sans TC",sans-serif;font-size:8pt;color:var(--muted);}}</style></head>
+<body>
+<div class="sheet">
+  <header>
+    <div class="badge"><small>LEVEL 3 · 挑戰</small>團隊求證準則</div>
+    <div class="ttl">
+      <h1>幫團隊定好：什麼一定要查</h1>
+      <p class="sub">求證準則說明 · 換你認識 AI 實作工作坊 · 題卡 3／3</p>
+    </div>
+    <div class="qr"><svg viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" aria-hidden="true"><rect width="37" height="37" fill="var(--qrpaper)"/><path d="M2 2h7v1h-7zM11 2h1v1h-1zM13 2h2v1h-2zM16 2h2v1h-2zM19 2h3v1h-3zM23 2h3v1h-3zM28 2h7v1h-7zM2 3h1v1h-1zM8 3h1v1h-1zM11 3h3v1h-3zM17 3h1v1h-1zM19 3h1v1h-1zM22 3h2v1h-2zM25 3h1v1h-1zM28 3h1v1h-1zM34 3h1v1h-1zM2 4h1v1h-1zM4 4h3v1h-3zM8 4h1v1h-1zM11 4h1v1h-1zM13 4h2v1h-2zM16 4h1v1h-1zM19 4h2v1h-2zM22 4h1v1h-1zM25 4h1v1h-1zM28 4h1v1h-1zM30 4h3v1h-3zM34 4h1v1h-1zM2 5h1v1h-1zM4 5h3v1h-3zM8 5h1v1h-1zM15 5h1v1h-1zM20 5h2v1h-2zM24 5h1v1h-1zM28 5h1v1h-1zM30 5h3v1h-3zM34 5h1v1h-1zM2 6h1v1h-1zM4 6h3v1h-3zM8 6h1v1h-1zM11 6h3v1h-3zM15 6h1v1h-1zM18 6h1v1h-1zM23 6h1v1h-1zM25 6h2v1h-2zM28 6h1v1h-1zM30 6h3v1h-3zM34 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM10 7h2v1h-2zM13 7h1v1h-1zM16 7h1v1h-1zM19 7h1v1h-1zM21 7h3v1h-3zM28 7h1v1h-1zM34 7h1v1h-1zM2 8h7v1h-7zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h7v1h-7zM12 9h2v1h-2zM16 9h1v1h-1zM19 9h1v1h-1zM21 9h3v1h-3zM25 9h2v1h-2zM2 10h1v1h-1zM5 10h1v1h-1zM7 10h2v1h-2zM10 10h2v1h-2zM13 10h6v1h-6zM20 10h4v1h-4zM25 10h3v1h-3zM29 10h1v1h-1zM4 11h2v1h-2zM9 11h2v1h-2zM13 11h1v1h-1zM19 11h1v1h-1zM22 11h1v1h-1zM26 11h4v1h-4zM34 11h1v1h-1zM2 12h2v1h-2zM6 12h6v1h-6zM13 12h1v1h-1zM18 12h1v1h-1zM21 12h2v1h-2zM24 12h1v1h-1zM27 12h4v1h-4zM32 12h1v1h-1zM34 12h1v1h-1zM3 13h1v1h-1zM5 13h1v1h-1zM7 13h1v1h-1zM12 13h1v1h-1zM16 13h2v1h-2zM21 13h3v1h-3zM25 13h1v1h-1zM30 13h2v1h-2zM33 13h1v1h-1zM2 14h4v1h-4zM8 14h2v1h-2zM11 14h3v1h-3zM17 14h1v1h-1zM19 14h1v1h-1zM21 14h3v1h-3zM26 14h1v1h-1zM28 14h2v1h-2zM31 14h1v1h-1zM34 14h1v1h-1zM2 15h2v1h-2zM6 15h2v1h-2zM9 15h1v1h-1zM11 15h2v1h-2zM14 15h2v1h-2zM17 15h2v1h-2zM21 15h1v1h-1zM24 15h1v1h-1zM26 15h1v1h-1zM28 15h4v1h-4zM33 15h2v1h-2zM3 16h1v1h-1zM5 16h2v1h-2zM8 16h1v1h-1zM13 16h4v1h-4zM22 16h2v1h-2zM25 16h4v1h-4zM30 16h1v1h-1zM33 16h1v1h-1zM3 17h3v1h-3zM10 17h1v1h-1zM12 17h2v1h-2zM15 17h1v1h-1zM17 17h1v1h-1zM19 17h1v1h-1zM23 17h1v1h-1zM28 17h2v1h-2zM33 17h1v1h-1zM2 18h3v1h-3zM6 18h7v1h-7zM14 18h3v1h-3zM19 18h1v1h-1zM21 18h3v1h-3zM26 18h1v1h-1zM28 18h1v1h-1zM30 18h1v1h-1zM33 18h1v1h-1zM3 19h1v1h-1zM5 19h2v1h-2zM9 19h1v1h-1zM13 19h2v1h-2zM18 19h2v1h-2zM23 19h1v1h-1zM25 19h2v1h-2zM29 19h1v1h-1zM31 19h1v1h-1zM8 20h2v1h-2zM11 20h2v1h-2zM15 20h1v1h-1zM22 20h1v1h-1zM27 20h1v1h-1zM32 20h3v1h-3zM2 21h1v1h-1zM4 21h2v1h-2zM7 21h1v1h-1zM11 21h3v1h-3zM15 21h1v1h-1zM17 21h4v1h-4zM22 21h2v1h-2zM25 21h5v1h-5zM33 21h1v1h-1zM3 22h1v1h-1zM5 22h1v1h-1zM8 22h1v1h-1zM10 22h2v1h-2zM13 22h1v1h-1zM15 22h2v1h-2zM18 22h1v1h-1zM22 22h2v1h-2zM27 22h1v1h-1zM29 22h1v1h-1zM33 22h1v1h-1zM6 23h1v1h-1zM9 23h1v1h-1zM11 23h1v1h-1zM14 23h1v1h-1zM16 23h3v1h-3zM24 23h1v1h-1zM26 23h4v1h-4zM33 23h2v1h-2zM2 24h3v1h-3zM6 24h1v1h-1zM8 24h1v1h-1zM12 24h1v1h-1zM15 24h1v1h-1zM17 24h1v1h-1zM20 24h5v1h-5zM28 24h2v1h-2zM31 24h2v1h-2zM34 24h1v1h-1zM3 25h1v1h-1zM6 25h2v1h-2zM9 25h2v1h-2zM13 25h4v1h-4zM18 25h1v1h-1zM20 25h2v1h-2zM23 25h1v1h-1zM27 25h3v1h-3zM33 25h2v1h-2zM2 26h1v1h-1zM6 26h3v1h-3zM17 26h3v1h-3zM21 26h1v1h-1zM23 26h1v1h-1zM26 26h5v1h-5zM10 27h3v1h-3zM14 27h1v1h-1zM16 27h1v1h-1zM21 27h6v1h-6zM30 27h2v1h-2zM33 27h2v1h-2zM2 28h7v1h-7zM11 28h1v1h-1zM13 28h1v1h-1zM16 28h1v1h-1zM19 28h1v1h-1zM22 28h2v1h-2zM26 28h1v1h-1zM28 28h1v1h-1zM30 28h4v1h-4zM2 29h1v1h-1zM8 29h1v1h-1zM10 29h2v1h-2zM13 29h3v1h-3zM18 29h2v1h-2zM21 29h1v1h-1zM23 29h1v1h-1zM26 29h1v1h-1zM30 29h1v1h-1zM34 29h1v1h-1zM2 30h1v1h-1zM4 30h3v1h-3zM8 30h1v1h-1zM15 30h3v1h-3zM20 30h1v1h-1zM22 30h3v1h-3zM26 30h6v1h-6zM2 31h1v1h-1zM4 31h3v1h-3zM8 31h1v1h-1zM10 31h3v1h-3zM17 31h1v1h-1zM19 31h1v1h-1zM23 31h1v1h-1zM25 31h2v1h-2zM28 31h1v1h-1zM30 31h3v1h-3zM2 32h1v1h-1zM4 32h3v1h-3zM8 32h1v1h-1zM11 32h2v1h-2zM15 32h2v1h-2zM18 32h2v1h-2zM23 32h1v1h-1zM25 32h1v1h-1zM30 32h3v1h-3zM34 32h1v1h-1zM2 33h1v1h-1zM8 33h1v1h-1zM11 33h1v1h-1zM13 33h1v1h-1zM16 33h5v1h-5zM22 33h2v1h-2zM25 33h2v1h-2zM31 33h1v1h-1zM2 34h7v1h-7zM10 34h1v1h-1zM12 34h1v1h-1zM14 34h1v1h-1zM18 34h1v1h-1zM20 34h1v1h-1zM23 34h1v1h-1zM26 34h3v1h-3zM30 34h1v1h-1zM33 34h1v1h-1z" fill="var(--qrink)"/></svg>掃碼開卡</div>
+  </header>
+
+  <h2>1　這張卡教什麼</h2>
+  <p>講得流暢、篤定，不等於是對的。幫團隊寫一頁求證準則：<span class="k">哪四類一定要查、怎麼查、什麼事不交給 AI</span>。這張回家做，講師現場示範一次。完成＝自己用計算機核一次 L1 那次月合計：對了就說「我查過」，錯了就指出錯在哪一筆；兩種結果都算完成。</p>
+
+  <h2>2　兩條路怎麼選</h2>
+  <div class="pair">
+    <div><b>A　跑範例</b>L1 那次月合計逐筆對答案，再把記帳版準則貼給 AI 試用。</div>
+    <div><b>B　做自己的事</b>你的小組或團隊常請 AI 寫的東西：通知、報告、收支。一頁模板自己填，「交回」那欄最要緊。</div>
+  </div>
+  <p style="margin-top:6px">兩條路終點相同：一頁團隊照著查的準則。</p>
+
+  <h2>3　操作三步</h2>
+  <ol>
+    <li><span class="k">逐筆核對（求證）</span>：要它逐筆列出小計，拿手機計算機從第一筆加起，對到哪一筆開始不一樣，錯就在那一筆。</li>
+    <li><span class="k">寫下四類</span>：必須求證的是數字與金額、引用與出處、日期與期限、對外內容，再加你們團隊自己的。</li>
+    <li><span class="k">哪些事交回給人（交回）</span>：錯了收不回的事（花錢、寄出、刪除、對外發佈）、要有人負責的判斷、你自己也驗不了的事，AI 只給選項，人來決定。</li>
+  </ol>
+  <p>想再練：用練習對話二，拿準則找出三處錯。對話裡答應照做，不等於做對：花錢、寄出、刪除、對外發佈仍要人工核可。真任務、假資料：姓名、電話、名單、密碼、財務、醫療先去識別。</p>
+
+  <h2>4　按鈕裡裝什麼（網頁版一鍵複製）</h2>
+  <dl>
+    <dt>逐筆小計</dt><dd>要 AI 把 L1 那 12 筆逐筆列出、每筆寫累計小計，讓你自己對答案。</dd>
+    <dt>求證準則（記帳版）</dt><dd>四類必查、怎麼查、交回條件都寫好，結尾要 AI 先複誦。</dd>
+    <dt>空白求證準則</dt><dd>團隊用的一頁模板：四類之外自己加、怎麼查、哪些事不交給 AI。</dd>
+  </dl>
+
+  <p class="fine">任何 AI 工具皆可 · 免費版可完成 · 各工具介面可能不同 · tomclin.github.io/ai-course-103/card-level3.html</p>
+</div>
+</body>
+</html>
